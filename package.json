@@ -1,7 +1,7 @@
 {
     "name": "ts-pro",
     "author": "Alexandr Nikolaichev",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "Advanced utility types for typescript",
     "repository": "https://github.com/nikalexxx/ts-pro",
     "homepage": "https://github.com/nikalexxx/ts-pro",
