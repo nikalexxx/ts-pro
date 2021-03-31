@@ -2,8 +2,8 @@
 
 Advanced utility types for TypeScript
 
-<!-- ![Latest Stable Version](https://img.shields.io/npm/v/ts-pro.svg)
-![License](https://img.shields.io/npm/l/ts-pro.svg) -->
+![Latest Stable Version](https://img.shields.io/npm/v/ts-pro.svg)
+
 
 
 ## Installation
