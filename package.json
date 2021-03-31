@@ -1,0 +1,21 @@
+{
+    "name": "ts-pro",
+    "author": "Alexandr Nikolaichev",
+    "version": "0.0.8",
+    "description": "Advanced utility types for typescript",
+    "repository": "https://github.com/nikalexxx/ts-pro",
+    "homepage": "https://github.com/nikalexxx/ts-pro",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "rm -Rf dist; tsc -p ./tsconfig.build.json --outDir dist/"
+    },
+    "keywords": [
+        "typescript",
+        "types",
+        "generics"
+    ],
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^4.2.3"
+    }
+}

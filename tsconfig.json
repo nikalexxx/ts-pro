@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "lib": ["esnext"],
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "module": "esnext",
+        "isolatedModules": true,
+        "declaration": true,
+        "emitDeclarationOnly": true
+    },
+    "include": ["src"]
+}
