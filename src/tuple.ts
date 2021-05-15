@@ -44,13 +44,27 @@ export namespace P_Tuple {
 
     /**
      * @param List tuple
+     * @returns union of tuple values
+     * @example
+     * ```ts
+     * P_Tuple.Item<['a', 'b', 'c']>; // 'a' | 'b' | 'c'
+     * ```
+     */
+    export type Item<List extends Instance> = List extends Array<infer X>
+        ? X
+        : never;
+
+    /**
+     * @param List tuple
      * @param T target type
      * @returns filtered tuple
      * @example
+     * ```ts
      * P_Tuple.Filter<[true, false[], boolean], boolean>; // [true, boolean]
      * P_Tuple.Filter<[1, 2, 2 | 3, 9, 1 | 9], 2 | 3 | 9>; // [2, 2 | 3, 9]
+     * ```
      */
-    export type Filter<List extends Instance, T> = List extends []
+    export type Filter<List extends Instance, T> = List extends Empty
         ? List
         : Head<List> extends T
         ? [Head<List>, ...Filter<Tail<List>, T>]
@@ -61,7 +75,9 @@ export namespace P_Tuple {
      * @param T target type
      * @returns mapped tuple with `T` filling
      * @example
+     * ```ts
      * P_Tuple.Map<[1, 2, 3], 0>; // [0, 0, 0]
+     * ```
      */
     export type Map<List extends Instance, T> = List extends []
         ? List

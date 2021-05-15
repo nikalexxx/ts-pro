@@ -37,6 +37,24 @@ export namespace P_List {
         : P_Array.Tail<T>;
 
     /**
+     * `[A] - [A] - [A] - ... => A`
+     *
+     * `[A] - [B] - [C] - ... => (A | B | C | ...)`
+     * @param List
+     * @returns `Item(List) ^ never` type of any element in list
+     * @example
+     * ```ts
+     * P_List.Item<string[]>; // string
+     * P_List.Item<['a', 1, null]>; // 'a' | 1 | null
+     * P_List.Item<[]>; // never
+     * ```
+     */
+    export type Item<T extends any[]> = T extends P_Tuple.Instance
+        ? P_Tuple.Item<T>
+        : P_Array.Item<T>;
+
+
+    /**
      * @param List
      * @param T target type
      * @returns filtered list

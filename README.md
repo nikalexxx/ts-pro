@@ -47,6 +47,20 @@ P_List.Tail<[]>; // never
 ```
 
 
+### `Item`
+`[A] - [A] - [A] - ... => A`
+
+`[A] - [B] - [C] - ... => (A | B | C | ...)`
+
+`Item(List) ^ never` type of any element in list
+
+```typescript
+P_List.Item<string[]>; // string
+P_List.Item<['a', 1, null]>; // 'a' | 1 | null
+P_List.Item<[]>; // never
+```
+
+
 ### `Filter<List, T>`
 Filtered list
 
@@ -115,10 +129,7 @@ FilterByKey<{a: 1; b: 'one'}, 'b' | 'c'>; // {b: 'one'}
 ## P_Function
 
 ### `Instance`
-any function
-```typescript
-Instance = (...args: any) => any;
-```
+any function `(...args: any) => any`
 
 ### `FilterParameters<F, T>`
 
@@ -167,20 +178,15 @@ Non-empty tuple `[any, ...any[]]`
 Any tuple `Empty | NonEmpty`
 
 ### `P_Tuple` list types
-`Head`, `Tail`, `Filter`, `Map`, `FilterMap`, `Find`, `Every`, `Revert`
+`Head`, `Tail`, `Item`, `Filter`, `Map`, `FilterMap`, `Find`, `Every`, `Revert`
 
 ## P_Array
 
-### `Item`
-Element of array
-```typescript
-P_Array.Item<string[]>; // string
-P_Array.Item<[string, number]>; // string | number
-P_Array.Item<[]>; // never
-```
+### `Instance`
+Any array `any[]`
 
 ### `P_Array` list types
-`Head`, `Tail`, `Filter`, `Map`, `FilterMap`, `Find`, `Every`
+`Head`, `Tail`, `Item`, `Filter`, `Map`, `FilterMap`, `Find`, `Every`
 
 
 ## Other types

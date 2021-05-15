@@ -1,6 +1,9 @@
 import { P_Optional } from './logical';
 
 export namespace P_Array {
+
+    export type Instance = any[];
+
     /**
      * @param List array
      * @returns element of array
@@ -11,7 +14,7 @@ export namespace P_Array {
      * P_Array.Item<[]>; // never
      * ```
      */
-    export type Item<List extends any[]> = List extends Array<infer X>
+    export type Item<List extends Instance> = List extends Array<infer X>
         ? X
         : never;
 
@@ -25,7 +28,7 @@ export namespace P_Array {
      * P_Array.Head<[]>; // undefined
      * ```
      */
-    export type Head<List extends any[]> = List extends Array<infer X>
+    export type Head<List extends Instance> = List extends Array<infer X>
         ? P_Optional<X>
         : never;
 
@@ -39,7 +42,7 @@ export namespace P_Array {
      * P_Array.Tail<[]>; // undefined[]
      * ```
      */
-    export type Tail<List extends any[]> = List extends Array<infer X>
+    export type Tail<List extends Instance> = List extends Array<infer X>
         ? P_Optional<X>[]
         : never;
 
@@ -54,7 +57,7 @@ export namespace P_Array {
      * P_Array.Filter<[1, 2], string>; // []
      * ```
      */
-    export type Filter<List extends any[], T> = Item<List> extends T
+    export type Filter<List extends Instance, T> = Item<List> extends T
         ? List
         : [];
 
@@ -67,7 +70,7 @@ export namespace P_Array {
      * P_Array.Map<string[], number>; // number[]
      * ```
      */
-    export type Map<List extends any[], T> = List extends [] ? List : T[];
+    export type Map<List extends Instance, T> = List extends [] ? List : T[];
 
     /**
      * @param List array
@@ -79,7 +82,7 @@ export namespace P_Array {
      * P_Array.FilterMap<number[], string>; // never[]
      * ```
      */
-    export type FilterMap<List extends any[], T> = Item<List> extends T
+    export type FilterMap<List extends Instance, T> = Item<List> extends T
         ? List
         : never[];
 
@@ -93,7 +96,7 @@ export namespace P_Array {
      * P_Array.Find<number[], string>; // never
      * ```
      */
-    export type Find<List extends any[], T> = Item<List> extends T
+    export type Find<List extends Instance, T> = Item<List> extends T
         ? Item<List>
         : never;
 
@@ -107,5 +110,5 @@ export namespace P_Array {
      * P_Array.Every<number[], string>; // false
      * ```
      */
-    export type Every<List extends any[], T> = Find<List, T> extends never ? false : true;
+    export type Every<List extends Instance, T> = Find<List, T> extends never ? false : true;
 }
