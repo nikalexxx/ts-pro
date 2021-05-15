@@ -47,7 +47,7 @@ P_List.Tail<[]>; // never
 ```
 
 
-### `Item`
+### `Item<List>`
 `[A] - [A] - [A] - ... => A`
 
 `[A] - [B] - [C] - ... => (A | B | C | ...)`
