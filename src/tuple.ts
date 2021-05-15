@@ -10,12 +10,13 @@ export namespace P_Tuple {
     /**
      * Non-empty tuple
      */
-    export type NonEmpty = [any, ...any[]];
+    export type NonEmpty<T = any> = [T, ...T[]];
+
 
     /**
      * Any tuple
      */
-    export type Instance = Empty | NonEmpty;
+    export type Instance<T = any> = Empty | NonEmpty<T>;
 
     /**
      * @param List tuple

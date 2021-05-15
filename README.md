@@ -171,19 +171,19 @@ Tuple — fixed-length array.
 ### `Empty`
 Empty tuple `[]`
 
-### `NonEmpty`
-Non-empty tuple `[any, ...any[]]`
+### `NonEmpty<T = any>`
+Non-empty tuple `[T, ...T[]]`
 
-### `Instance`
-Any tuple `Empty | NonEmpty`
+### `Instance<T = any>`
+Tuple `Empty | NonEmpty<T>`
 
 ### `P_Tuple` list types
 `Head`, `Tail`, `Item`, `Filter`, `Map`, `FilterMap`, `Find`, `Every`, `Revert`
 
 ## P_Array
 
-### `Instance`
-Any array `any[]`
+### `Instance<T = any>`
+Array `T[]`
 
 ### `P_Array` list types
 `Head`, `Tail`, `Item`, `Filter`, `Map`, `FilterMap`, `Find`, `Every`

@@ -2,7 +2,7 @@ import { P_Optional } from './logical';
 
 export namespace P_Array {
 
-    export type Instance = any[];
+    export type Instance<T = any> = T[];
 
     /**
      * @param List array
