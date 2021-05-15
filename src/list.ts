@@ -1,8 +1,8 @@
 import { P_Array } from './array';
-import { P_Turple } from './turple';
+import { P_Tuple } from './tuple';
 
 /**
- * List — turple or any array.
+ * List — tuple or any array.
  * All types are applied first to tuples, and in the case of a mismatch, to the rest of the common array cases.
  */
 export namespace P_List {
@@ -17,8 +17,8 @@ export namespace P_List {
      * P_List.Head<[]>; // never
      * ```
      */
-    export type Head<T extends any[]> = T extends P_Turple.Instance
-        ? P_Turple.Head<T>
+    export type Head<T extends any[]> = T extends P_Tuple.Instance
+        ? P_Tuple.Head<T>
         : P_Array.Head<T>;
 
     /**
@@ -32,8 +32,8 @@ export namespace P_List {
      * P_List.Tail<[]>; // never
      * ```
      */
-    export type Tail<T extends any[]> = T extends P_Turple.Instance
-        ? P_Turple.Tail<T>
+    export type Tail<T extends any[]> = T extends P_Tuple.Instance
+        ? P_Tuple.Tail<T>
         : P_Array.Tail<T>;
 
     /**
@@ -48,8 +48,8 @@ export namespace P_List {
      * P_List.Filter<number[], boolean>; // []
      * ```
      */
-    export type Filter<List extends any[], T> = List extends P_Turple.Instance
-        ? P_Turple.Filter<List, T>
+    export type Filter<List extends any[], T> = List extends P_Tuple.Instance
+        ? P_Tuple.Filter<List, T>
         : P_Array.Filter<List, T>;
 
     /**
@@ -62,8 +62,8 @@ export namespace P_List {
      * P_List.Map<string[], 0>; // 0[]
      * ```
      */
-    export type Map<List extends any[], T> = List extends P_Turple.Instance
-        ? P_Turple.Map<List, T>
+    export type Map<List extends any[], T> = List extends P_Tuple.Instance
+        ? P_Tuple.Map<List, T>
         : P_Array.Map<List, T>;
 
     /**
@@ -79,8 +79,8 @@ export namespace P_List {
     export type FilterMap<
         List extends any[],
         T
-    > = List extends P_Turple.Instance
-        ? P_Turple.FilterMap<List, T>
+    > = List extends P_Tuple.Instance
+        ? P_Tuple.FilterMap<List, T>
         : P_Array.FilterMap<List, T>;
 
     /**
@@ -93,8 +93,8 @@ export namespace P_List {
      * P_List.Find<number[], string>; // never
      * ```
      */
-    export type Find<List extends any[], T> = List extends P_Turple.Instance
-        ? P_Turple.Find<List, T>
+    export type Find<List extends any[], T> = List extends P_Tuple.Instance
+        ? P_Tuple.Find<List, T>
         : P_Array.Find<List, T>;
 
     /**
@@ -107,8 +107,8 @@ export namespace P_List {
      * P_List.Every<number[], string>; // false
      * ```
      */
-    export type Every<List extends any[], T> = List extends P_Turple.Instance
-        ? P_Turple.Every<List, T>
+    export type Every<List extends any[], T> = List extends P_Tuple.Instance
+        ? P_Tuple.Every<List, T>
         : P_Array.Every<List, T>;
 
     /**
@@ -120,7 +120,7 @@ export namespace P_List {
      * P_List.Revert<number[]>; // number[]
      * ```
      */
-    export type Revert<List extends any[]> = List extends P_Turple.Instance
-        ? P_Turple.Revert<List>
+    export type Revert<List extends any[]> = List extends P_Tuple.Instance
+        ? P_Tuple.Revert<List>
         : List;
 }

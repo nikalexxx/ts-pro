@@ -18,7 +18,7 @@ yarn add ts-pro
 
 
 ## P_List
-List — turple or any array.
+List — tuple or any array.
 All types are applied first to tuples, and in the case of a mismatch, to the rest of the common array cases.
 
 ### `Head<List>`
@@ -153,20 +153,20 @@ P_Function.Compose<((a: 'a' | 'b' | 'c') => 'a' | 'b')[]>; // (a: 'a' | 'b' | 'c
 P_Function.Compose<((a: 'a' | 'b') => 'a' | 'b' | 'c')[]>; // never
 ```
 
-## P_Turple
+## P_Tuple
 
-Turple — fixed-length array.
+Tuple — fixed-length array.
 
 ### `Empty`
-Empty turple `[]`
+Empty tuple `[]`
 
 ### `NonEmpty`
-Non-empty turple `[any, ...any[]]`
+Non-empty tuple `[any, ...any[]]`
 
 ### `Instance`
-Any turple `Empty | NonEmpty`
+Any tuple `Empty | NonEmpty`
 
-### `P_Turple` list types
+### `P_Tuple` list types
 `Head`, `Tail`, `Filter`, `Map`, `FilterMap`, `Find`, `Every`, `Revert`
 
 ## P_Array
@@ -185,7 +185,7 @@ P_Array.Item<[]>; // never
 
 ## Other types
 
-### `P_Options<TurpleList>`
+### `P_Options<TupleList>`
 First non never type in list or `never`.
 Selecting types in turn.
 

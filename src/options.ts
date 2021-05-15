@@ -1,4 +1,4 @@
-import { P_Turple } from './turple';
+import { P_Tuple } from './tuple';
 
 /**
  * Select types in turn
@@ -19,10 +19,10 @@ import { P_Turple } from './turple';
  * typeName<string[]>; // 'unknown'
  * ```
  */
-export type P_Options<List extends P_Turple.NonEmpty> = List extends [infer X]
+export type P_Options<List extends P_Tuple.NonEmpty> = List extends [infer X]
     ? X
     : List[0] extends never
-    ? P_Turple.Tail<List> extends P_Turple.NonEmpty
-        ? P_Options<P_Turple.Tail<List>>
+    ? P_Tuple.Tail<List> extends P_Tuple.NonEmpty
+        ? P_Options<P_Tuple.Tail<List>>
         : never
     : List[0];

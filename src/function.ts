@@ -1,6 +1,6 @@
 import { P_Array } from './array';
 import { P_List } from './list';
-import { P_Turple } from './turple';
+import { P_Tuple } from './tuple';
 
 export namespace P_Function {
     /**
@@ -42,7 +42,7 @@ export namespace P_Function {
         StartParams extends any[] = Parameters<FunctionList[0]>
     > = FunctionList extends []
         ? never
-        : FunctionList extends P_Turple.NonEmpty
+        : FunctionList extends P_Tuple.NonEmpty
         ? FunctionList[0] extends Instance
             ? FunctionList extends [any]
                 ? (...args: StartParams) => ReturnType<FunctionList[0]>
@@ -51,7 +51,7 @@ export namespace P_Function {
                     ? ReturnType<FunctionList[0]> extends Parameters<
                           FunctionList[1]
                       >[0]
-                        ? Pipe<P_Turple.Tail<FunctionList>, StartParams>
+                        ? Pipe<P_Tuple.Tail<FunctionList>, StartParams>
                         : never
                     : never
                 : never

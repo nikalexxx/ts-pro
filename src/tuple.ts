@@ -1,29 +1,29 @@
 /**
- * Turple — fixed-length array
+ * Tuple — fixed-length array
  */
-export namespace P_Turple {
+export namespace P_Tuple {
     /**
-     * Empty turple
+     * Empty tuple
      */
     export type Empty = [];
 
     /**
-     * Non-empty turple
+     * Non-empty tuple
      */
     export type NonEmpty = [any, ...any[]];
 
     /**
-     * Any turple
+     * Any tuple
      */
     export type Instance = Empty | NonEmpty;
 
     /**
-     * @param List turple
+     * @param List tuple
      * @returns `Tail(List) ^ never` all elements of tuple after first element
      * @example
-     * P_Turple.Tail<[1, 2, 3]>; // [2, 3]
-     * P_Turple.Tail<[string]>; // []
-     * P_Turple.Tail<[]>; // never
+     * P_Tuple.Tail<[1, 2, 3]>; // [2, 3]
+     * P_Tuple.Tail<[string]>; // []
+     * P_Tuple.Tail<[]>; // never
      */
     export type Tail<List extends Instance> = List extends [any, ...infer X]
         ? X extends Instance
@@ -32,23 +32,23 @@ export namespace P_Turple {
         : never;
 
     /**
-     * @param List turple
-     * @returns `Head(List) ^ never` first element of turple
+     * @param List tuple
+     * @returns `Head(List) ^ never` first element of tuple
      * @example
-     * P_Turple.Head<[1, 2, 3]>; // 1
-     * P_Turple.Head<[]>; // never
+     * P_Tuple.Head<[1, 2, 3]>; // 1
+     * P_Tuple.Head<[]>; // never
      */
     export type Head<List extends Instance> = List extends [infer X, ...any]
         ? X
         : never;
 
     /**
-     * @param List turple
+     * @param List tuple
      * @param T target type
-     * @returns filtered turple
+     * @returns filtered tuple
      * @example
-     * P_Turple.Filter<[true, false[], boolean], boolean>; // [true, boolean]
-     * P_Turple.Filter<[1, 2, 2 | 3, 9, 1 | 9], 2 | 3 | 9>; // [2, 2 | 3, 9]
+     * P_Tuple.Filter<[true, false[], boolean], boolean>; // [true, boolean]
+     * P_Tuple.Filter<[1, 2, 2 | 3, 9, 1 | 9], 2 | 3 | 9>; // [2, 2 | 3, 9]
      */
     export type Filter<List extends Instance, T> = List extends []
         ? List
@@ -57,23 +57,23 @@ export namespace P_Turple {
         : Filter<Tail<List>, T>;
 
     /**
-     * @param List turple
+     * @param List tuple
      * @param T target type
-     * @returns mapped turple with `T` filling
+     * @returns mapped tuple with `T` filling
      * @example
-     * P_Turple.Map<[1, 2, 3], 0>; // [0, 0, 0]
+     * P_Tuple.Map<[1, 2, 3], 0>; // [0, 0, 0]
      */
     export type Map<List extends Instance, T> = List extends []
         ? List
         : [T, ...Map<Tail<List>, T>];
 
     /**
-     * @param List turple
+     * @param List tuple
      * @param T target type
-     * @returns filtered turple with fill-in `never` in place of mismatches
+     * @returns filtered tuple with fill-in `never` in place of mismatches
      * @example
-     * P_Turple.FilterMap<[1, number, 'a', string], string>; // [never, never, 'a', string]
-     * P_Turple.FilterMap<[typeof Array.toString, typeof Array, 'length'], (...args: any) => any>;
+     * P_Tuple.FilterMap<[1, number, 'a', string], string>; // [never, never, 'a', string]
+     * P_Tuple.FilterMap<[typeof Array.toString, typeof Array, 'length'], (...args: any) => any>;
      * // [() => string, ArrayConstructor, never]
      */
     export type FilterMap<List extends Instance, T> = List extends []
@@ -83,12 +83,12 @@ export namespace P_Turple {
         : [never, ...FilterMap<Tail<List>, T>];
 
     /**
-     * @param List turple
+     * @param List tuple
      * @param T target type
      * @returns `subtype(T) ^ never` first found subtype
      * @example
-     * P_Turple.Find<[true, boolean, 2, number, 3], number>; // 2
-     * P_Turple.Find<[string, {a: 1}], any[]>; // never
+     * P_Tuple.Find<[true, boolean, 2, number, 3], number>; // 2
+     * P_Tuple.Find<[string, {a: 1}], any[]>; // never
      */
     export type Find<List extends Instance, T> = List extends []
         ? never
@@ -97,12 +97,12 @@ export namespace P_Turple {
         : Find<Tail<List>, T>;
 
     /**
-     * @param List turple
+     * @param List tuple
      * @param T target type
      * @returns `true ^ false`
      * @example
-     * P_Turple.Every<[1, 9.4, typeof Infinity, number], number>; // true
-     * P_Turple.Every<['a', string, {}], string>; // false
+     * P_Tuple.Every<[1, 9.4, typeof Infinity, number], number>; // true
+     * P_Tuple.Every<['a', string, {}], string>; // false
      */
     export type Every<List extends Instance, T> = List extends []
         ? true
@@ -111,9 +111,9 @@ export namespace P_Turple {
         : false;
 
     /**
-     * @param List turple
+     * @param List tuple
      * @returns reverted list
-     * @example P_Turple.Revert<[1, 'a', string]>; // [string, 'a', 1]
+     * @example P_Tuple.Revert<[1, 'a', string]>; // [string, 'a', 1]
      */
     export type Revert<List extends Instance> = List extends Empty
         ? List
