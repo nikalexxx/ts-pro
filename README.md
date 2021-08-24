@@ -113,6 +113,39 @@ P_List.Revert<[1, 'a', string]>; // [string, 'a', 1]
 P_List.Revert<number[]>; // number[]
 ```
 
+## P_String
+
+### `Filter<T, W>`
+Removed `W` from `T`
+```typescript
+P_String.Filter<'a b c', ' '>; // 'abc'
+P_String.Filter<'123', '2'>; // '13'
+```
+
+### `Trim<T, W = ' '>`
+Removed `W` from `T` in start and end
+```typescript
+P_String.Trim<'   897      '>; // '897'
+P_String.Trim<'__get', '_'>; // 'get'
+```
+
+### `Reverse<T>`
+Reverse string
+```typescript
+P_String.Reverse<'1,2,3,4,5'>; // '5,4,3,2,1'
+```
+
+### `Replace<T, W, R>`
+Replace `W` to `R` in `T`
+```typescript
+P_String.Replace<'Hello. Go away.', '.', '!'>; // 'Hello! Go away!'
+P_String.Replace<P_String.Replace<
+  '#{count} points in category #{category}',
+  '#{count}', '12'>,
+  '#{category}', 'typescript'>;
+// '12 points in category typescript'
+```
+
 ## P_Object
 
 ### `FilterByValue<Obj, T>`
