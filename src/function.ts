@@ -6,7 +6,7 @@ export namespace P_Function {
     /**
      * any function
      */
-    export type Instance = (...args: any) => any;
+    export type Instance<T extends any[] = any[], R = any> = (...args: T) => R;
 
     /**
      * @param F function
